@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Reporte de Accidentes - Mina</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <div class="contenedor-cabecera">
+      <img src="/logo.png" alt="Logo empresa" class="logo" />
+      <span class="titulo-app">MinaTech - Sistema de Reportes</span>
+    </div>
+  </header>
+
+  <h1>Reporte de Accidentes - Mina</h1>
+
+  <form id="formularioAccidente">
+    <!-- Todos los campos del formulario -->
+    <fieldset>
+      <legend>🧓 Datos del Trabajador</legend>
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <select name="tipoDocumento">
+        <option value="CC">CC</option>
+        <option value="CE">CE</option>
+        <option value="TI">TI</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <input type="text" name="numeroDocumento" placeholder="Número de documento" required>
+      <input type="text" name="cargo" placeholder="Cargo o función" required>
+      <input type="text" name="area" placeholder="Área de trabajo">
+    </fieldset>
+
+    <fieldset>
+      <legend>🕓 Información del Accidente</legend>
+      <input type="date" name="fecha" required>
+      <input type="time" name="hora" required>
+      <input type="text" name="lugar" placeholder="Lugar del accidente" required>
+      <select name="tipoAccidente">
+        <option value="Caída">Caída</option>
+        <option value="Golpe">Golpe</option>
+        <option value="Atrapamiento">Atrapamiento</option>
+        <option value="Eléctrico">Eléctrico</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <textarea name="descripcion" placeholder="Descripción breve del accidente"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>🚑 Datos de la Lesión</legend>
+      <input type="text" name="tipoLesion" placeholder="Tipo de lesión">
+      <input type="text" name="parteAfectada" placeholder="Parte del cuerpo afectada">
+      <label><input type="radio" name="atencionMedica" value="Sí"> Sí</label>
+      <label><input type="radio" name="atencionMedica" value="No"> No</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>📷 Evidencia</legend>
+      <input type="file" name="evidencia" accept="image/*,video/*">
+    </fieldset>
+
+    <fieldset>
+      <legend>✅ Acción Tomada</legend>
+      <textarea name="accionInmediata" placeholder="Acción inmediata realizada"></textarea>
+      <textarea name="recomendacion" placeholder="Recomendación para evitar que vuelva a ocurrir"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>👤 Responsable del Reporte</legend>
+      <input type="text" name="responsable" placeholder="Nombre del responsable">
+      <input type="text" name="cargoResponsable" placeholder="Cargo">
+      <input type="date" name="fechaReporte">
+    </fieldset>
+
+    <div class="botones">
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpiar</button>
+      <button type="button" onclick="eliminarReporte()">Eliminar</button>
+      <button type="button" onclick="editarReporte()">Editar</button>
+    </div>
+
+    <div id="notificaciones"></div>
+  </form>
+
+  <!-- Tabla de reportes -->
+  <hr>
+  <section class="tabla-reportes">
+    <h2>📋 Reportes Registrados</h2>
+    <div id="tabla-container">Cargando reportes...</div>
+  </section>
+
+  <script src="/script.js"></script>
+</body>
+</html>
